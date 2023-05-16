@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="威子">
+    
+    <title>
+        
+            从 0 搭建 Vite 3 + Vue 3 前端工程化项目 |
+        
+        我的世界
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":false,"preload":false},"code_copy":{},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":true,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"zack995886","github_admins":null,"repository":"zack995886data","client_id":"a85b4998347cbc5bfba6","client_secret":"283df2a25030f48a8d677cb8ed1de71cab8c7976","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               我的世界
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                我的内容
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">我的内容</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">从 0 搭建 Vite 3 + Vue 3 前端工程化项目</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">威子</span>
+                            
+                                <span class="author-label">Lv1</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-05-16 16:35:38</span>
+        <span class="mobile">2023-05-16 16:35</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-05-16 19:57:43</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/vue3/">vue3</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="从-0-搭建-Vite-3-Vue-3-前端工程化项目"><a href="#从-0-搭建-Vite-3-Vue-3-前端工程化项目" class="headerlink" title="从 0 搭建 Vite 3 + Vue 3 前端工程化项目"></a>从 0 搭建 Vite 3 + Vue 3 前端工程化项目</h1><p>前言</p>
+<p>Vue 3 正式版已经发布有一段时间了，随着 Vite 脚手架注定成为下一代前端工具链，许多用户都想基于 Vite 来构建 Vue 项目，如果想基于 Vite 构建 Vue 3 项目，社区模板完全满足您的需求，如果想构建 Vite 3 + Vue 3 + JavaScript 项目，那社区模板不太能满足您的需求，因为社区模板提供 Vue 3 项目几乎是基于 Vite 2 + TypeScript 构建，对于不熟悉 TypeScript 语言的用户不是很友好，因此接下来从 0 开始手把手带大家搭建一套规范的 Vite 3 + Vue 3 + JavaScript 前端工程化项目环境。</p>
+<p>本文章篇幅较长，从以下几个方面展开：</p>
+<p>基础搭建<br>代码规范<br>提交规范<br>自动部署</p>
+<ul>
+<li><a href="#%E4%BB%8E0%E6%90%AD%E5%BB%BA-vite-3-vue-3%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%A1%B9%E7%9B%AE">从 0 搭建 Vite 3 + Vue 3 前端工程化项目</a></li>
+<li><a href="#npm-6-x">npm 6.x</a></li>
+<li><a href="#npm-7-extra-double-dash-is-needed">npm 7+, extra double-dash is needed:</a></li>
+<li><a href="#yarn">yarn</a></li>
+<li><a href="#pnpm">pnpm</a></li>
+<li><a href="#%E6%89%93%E5%BC%80%E9%A1%B9%E7%9B%AE">打开项目</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96">安装依赖</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE">启动项目</a></li>
+<li><a href="#%E8%A1%A8%E7%A4%BA%E6%98%AF%E6%9C%80%E9%A1%B6%E5%B1%82%E7%9A%84editorconfig%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">表示是最顶层的 EditorConfig 配置文件</a></li>
+<li><a href="#%E8%A1%A8%E7%A4%BA%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E9%80%82%E7%94%A8">表示所有文件适用</a></li>
+<li><a href="#%E7%BC%A9%E8%BF%9B%E9%A3%8E%E6%A0%BC%EF%BC%88tab-space%EF%BC%89">缩进风格（tab | space）</a></li>
+<li><a href="#%E6%8E%A7%E5%88%B6%E6%8D%A2%E8%A1%8C%E7%B1%BB%E5%9E%8Blf-cr-crlf">控制换行类型(lf | cr | crlf)</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%BAutf-8">设置文件字符集为 utf-8</a></li>
+<li><a href="#%E5%8E%BB%E9%99%A4%E8%A1%8C%E9%A6%96%E7%9A%84%E4%BB%BB%E6%84%8F%E7%A9%BA%E7%99%BD%E5%AD%97%E7%AC%A6">去除行首的任意空白字符</a></li>
+<li><a href="#%E5%A7%8B%E7%BB%88%E5%9C%A8%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E6%8F%92%E5%85%A5%E4%B8%80%E4%B8%AA%E6%96%B0%E8%A1%8C">始终在文件末尾插入一个新行</a></li>
+<li><a href="#%E8%A1%A8%E7%A4%BA%E4%BB%85md%E6%96%87%E4%BB%B6%E9%80%82%E7%94%A8%E4%BB%A5%E4%B8%8B%E8%A7%84%E5%88%99">表示仅 md 文件适用以下规则</a></li>
+<li><a href="#%E8%A1%A8%E7%A4%BA%E4%BB%85ts%E3%80%81js%E3%80%81vue%E3%80%81css%E6%96%87%E4%BB%B6%E9%80%82%E7%94%A8%E4%BB%A5%E4%B8%8B%E8%A7%84%E5%88%99">表示仅 ts、js、vue、css 文件适用以下规则</a><ul>
+<li><a href="#os">OS</a></li>
+</ul>
+</li>
+<li><a href="#ignored-suffix">Ignored suffix</a><ul>
+<li><a href="#local">Local</a></li>
+<li><a href="#built-files">Built-files</a></li>
+</ul>
+</li>
+<li><a href="#stylelintignore">.stylelintignore</a></li>
+<li><a href="#%E6%97%A7%E7%9A%84%E4%B8%8D%E9%9C%80%E6%89%93%E5%8C%85%E7%9A%84%E6%A0%B7%E5%BC%8F%E5%BA%93">旧的不需打包的样式库</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B%E6%96%87%E4%BB%B6">其他类型文件</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E5%92%8C%E6%89%93%E5%8C%85%E7%9B%AE%E5%BD%95">测试和打包目录</a></li>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93">初始化仓库</a></li>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96">初始化</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96">安装依赖</a></li>
+</ul>
+<p>技术栈</p>
+<p>⚡️ Vite 3 - 构建工具（就是快！）<br>🖖 Vue 3 - 渐进式 JavaScript 框架<br>🚦 Vue Router - 官方路由管理器<br>📦 Pinia - 值得你喜欢的 Vue Store<br>💻 TDesign - TDesign 适配桌面端的组件库<br>🎨 Less - CSS 预处理器<br>🔗 Axios - 一个基于 promise 的网络请求库，可以用于浏览器和 node.js<br>🧰 Husky + Lint-Staged - Git Hook 工具<br>🛡️ EditorConfig + ESLint + Prettier + Stylelint - 代码规范<br>🔨 Commitizen + Commitlint - 提交规范<br>💡 GitHub Actions - 自动部署<br>基础搭建</p>
+<p>构建项目雏形</p>
+<p>确保你安装了最新版本的 Node.js，然后在命令行中运行以下命令：</p>
+<h1 id="npm-6-x"><a href="#npm-6-x" class="headerlink" title="npm 6.x"></a>npm 6.x</h1><p>npm create vite@latest vite-vue-js-template –template vue</p>
+<h1 id="npm-7-extra-double-dash-is-needed"><a href="#npm-7-extra-double-dash-is-needed" class="headerlink" title="npm 7+, extra double-dash is needed:"></a>npm 7+, extra double-dash is needed:</h1><p>npm create vite@latest vite-vue-js-template – –template vue</p>
+<h1 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h1><p>yarn create vite vite-vue-js-template –template vue</p>
+<h1 id="pnpm"><a href="#pnpm" class="headerlink" title="pnpm"></a>pnpm</h1><p>pnpm create vite vite-vue-js-template –template vue<br>复制代码<br>这一指令将会安装并执行 create-vite，它是一个基本模板快速启动项目工具。</p>
+<p>初始化项目</p>
+<p>在项目被创建后，通过以下步骤安装依赖并启动开发服务器：</p>
+<h1 id="打开项目"><a href="#打开项目" class="headerlink" title="打开项目"></a>打开项目</h1><p>cd <your-project-name></p>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>npm install</p>
+<h1 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h1><p>npm run dev<br>复制代码<br>启动项目</p>
+<p>Vite 基础配置</p>
+<p>Vite 配置文件 vite.config.js 位于项目根目录下，项目启动时会自动读取。</p>
+<p>本项目针对公共基础路径、自定义路径别名、服务器选项、构建选项等做了如下基础配置：</p>
+<figure class="highlight plaintext"><figcaption><span>&#123; defineConfig &#125; from 'vite';</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">import &#123; resolve &#125; from &#x27;path&#x27;;</span><br><span class="line">import vue from &#x27;@vitejs/plugin-vue&#x27;;</span><br><span class="line"></span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">    base: &#x27;./&#x27;,</span><br><span class="line">    plugins: [</span><br><span class="line">      vue(),</span><br><span class="line">    ],</span><br><span class="line">    resolve: &#123;</span><br><span class="line">      alias: &#123;</span><br><span class="line">        ‘@‘: resolve(__dirname, ‘./src’) ,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    server: &#123;</span><br><span class="line">      // 是否开启 https</span><br><span class="line">      https: false,</span><br><span class="line">      // 端口号</span><br><span class="line">      port: 3000,</span><br><span class="line">      // 监听所有地址</span><br><span class="line">      host: ‘0.0.0.0’,</span><br><span class="line">      // 服务启动时是否自动打开浏览器</span><br><span class="line">      open: true,</span><br><span class="line">      // 允许跨域</span><br><span class="line">      cors: true,</span><br><span class="line">      // 自定义代理规则</span><br><span class="line">      proxy: &#123;&#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    build: &#123;</span><br><span class="line">      // 设置最终构建的浏览器兼容目标</span><br><span class="line">      target: ‘es2015’,</span><br><span class="line">      // 构建后是否生成 source map 文件</span><br><span class="line">      sourcemap: false,</span><br><span class="line">      //  chunk 大小警告的限制（以 kbs 为单位）</span><br><span class="line">      chunkSizeWarningLimit: 2000,</span><br><span class="line">      // 启用/禁用 gzip 压缩大小报告</span><br><span class="line">      reportCompressedSize: false,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>复制代码<br>关于 Vite 更多配置项及用法，请查看 Vite 官网 vitejs.dev&#x2F;config&#x2F; 。</p>
+<p>规范目录结构</p>
+<p>├── dist&#x2F;<br>└── src&#x2F;<br>    ├── api&#x2F;                       &#x2F;&#x2F; 接口请求目录<br>    ├── assets&#x2F;                    &#x2F;&#x2F; 静态资源目录<br>    ├── common&#x2F;                    &#x2F;&#x2F; 通用类库目录<br>    ├── components&#x2F;                &#x2F;&#x2F; 公共组件目录<br>    ├── router&#x2F;                    &#x2F;&#x2F; 路由配置目录<br>    ├── store&#x2F;                     &#x2F;&#x2F; 状态管理目录<br>    ├── style&#x2F;                     &#x2F;&#x2F; 通用样式目录<br>    ├── utils&#x2F;                     &#x2F;&#x2F; 工具函数目录<br>    ├── views&#x2F;                     &#x2F;&#x2F; 页面组件目录<br>    ├── App.vue<br>    ├── main.js<br>├── tests&#x2F;                         &#x2F;&#x2F; 单元测试目录<br>├── index.html<br>├── jsconfig.json                  &#x2F;&#x2F; JavaScript 配置文件<br>├── vite.config.js                 &#x2F;&#x2F; Vite 配置文件<br>└── package.json<br>复制代码<br>集成 Vue Router 路由工具</p>
+<p>安装依赖</p>
+<p>npm i vue-router@4<br>复制代码<br>创建路由配置文件</p>
+<p>在 src&#x2F;router 目录下新建 index.js 文件与 modules 文件夹</p>
+<p>└── src&#x2F;<br>    ├── router&#x2F;<br>        ├── modules&#x2F;  &#x2F;&#x2F; 路由模块<br>        ├── index.js  &#x2F;&#x2F; 路由配置文件<br>复制代码<br>关于路由表，建议根据功能的不同来拆分到 modules 文件夹中，好处是：</p>
+<p>方便后期维护</p>
+<p>减少 Git 合并代码冲突可能性</p>
+<figure class="highlight plaintext"><figcaption><span>default [</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  &#123;</span><br><span class="line">    path: ‘/‘,</span><br><span class="line">    name: ‘home’,</span><br><span class="line">    component: () =&gt; import(‘@/views/HomeView.vue’),</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    path: ‘/about’,</span><br><span class="line">    name: ‘about’,</span><br><span class="line">    component: () =&gt; import(‘@/views/AboutView.vue’),</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<p>复制代码</p>
+<figure class="highlight plaintext"><figcaption><span>&#123; createRouter, createWebHistory &#125; from ‘vue-router’;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import baseRouters from ‘./modules/base’;</span><br><span class="line"></span><br><span class="line">const routes = [...baseRouters];</span><br><span class="line"></span><br><span class="line">const router = createRouter(&#123;</span><br><span class="line">  history: createWebHistory(import.meta.env.BASE_URL),</span><br><span class="line">  routes,</span><br><span class="line">  scrollBehavior() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      el: ‘#app’,</span><br><span class="line">      top: 0,</span><br><span class="line">      behavior: ‘smooth’,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">export default router;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>复制代码<br>根据路由配置的实际情况，需要在 src 下创建 views 目录，用来存储页面组件。</p>
+<p>挂载路由配置</p>
+<p>在 main.js 文件中挂载路由配置</p>
+<figure class="highlight plaintext"><figcaption><span>&#123; createApp &#125; from ‘vue’;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import App from ‘./App.vue’;</span><br><span class="line">import router from ‘./router’;</span><br><span class="line"></span><br><span class="line">createApp(App).use(router).mount(‘#app’);</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>集成 Pinia 全局状态管理工具</p>
+<p>安装依赖</p>
+<p>npm i pinia<br>复制代码<br>创建仓库配置文件</p>
+<p>在 src&#x2F;store 目录下新建 index.js 文件与 modules 文件夹</p>
+<p>└── src&#x2F;<br>    ├── store&#x2F;<br>        ├── modules&#x2F;  &#x2F;&#x2F; 仓库模块<br>        ├── index.js  &#x2F;&#x2F; 仓库配置文件<br>复制代码</p>
+<figure class="highlight plaintext"><figcaption><span>&#123; defineStore &#125; from ‘pinia’;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">export const useCounterStore = defineStore(‘counter’, &#123;</span><br><span class="line">  state: () =&gt; (&#123;</span><br><span class="line">    count: 1,</span><br><span class="line">  &#125;),</span><br><span class="line">  actions: &#123;</span><br><span class="line">    accumulate() &#123;</span><br><span class="line">      this.count++;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>复制代码</p>
+<figure class="highlight plaintext"><figcaption><span>&#123; createPinia &#125; from ‘pinia’;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const store = createPinia();</span><br><span class="line"></span><br><span class="line">export default store;</span><br><span class="line"></span><br><span class="line">export * from ‘./modules/counter’;</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>开发中需要将不同功能所对应的状态，拆分到不同的 modules，好处如同路由模块一样。</p>
+<p>挂载 Pinia 配置</p>
+<p>在 main.js 文件中挂载 Vuex 配置</p>
+<figure class="highlight plaintext"><figcaption><span>&#123; createApp &#125; from ‘vue’;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import App from ‘./App.vue’;</span><br><span class="line">import store from ‘./store’;</span><br><span class="line">import router from ‘./router’;</span><br><span class="line"></span><br><span class="line">createApp(App).use(router).use(store).mount(‘#app’);</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>集成 TDesign Vue Next 组件库</p>
+<p>安装依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i tdesign-vue-next</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>基础使用</p>
+<figure class="highlight plaintext"><figcaption><span>&#123; createApp &#125; from ‘vue’;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import TDesign from ‘tdesign-vue-next’;</span><br><span class="line"></span><br><span class="line">// 引入组件库全局样式资源</span><br><span class="line">import ‘tdesign-vue-next/es/style/index.css’;</span><br><span class="line"></span><br><span class="line">const app = createApp(App);</span><br><span class="line">app.use(TDesign);</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>按需引入</p>
+<p>使用 unplugin-vue-components 和 unplugin-auto-import 来实现自动导入：</p>
+<p>npm install unplugin-vue-components unplugin-auto-import -D<br>复制代码<br>在 Vite 对应的配置文件 vite.config.js 添加上述插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import AutoImport from ‘unplugin-auto-import/vite’;</span><br><span class="line">import Components from ‘unplugin-vue-components/vite’;</span><br><span class="line">import &#123; TDesignResolver &#125; from ‘unplugin-vue-components/resolvers’;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    AutoImport(&#123;</span><br><span class="line">      resolvers: [TDesignResolver(&#123;</span><br><span class="line">        library: ‘vue-next’</span><br><span class="line">      &#125;)],</span><br><span class="line">    &#125;),</span><br><span class="line">    Components(&#123;</span><br><span class="line">      resolvers: [TDesignResolver(&#123;</span><br><span class="line">        library: ‘vue-next’</span><br><span class="line">      &#125;)],</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>集成 Axios HTTP 工具</p>
+<p>安装依赖</p>
+<p>npm i axios<br>复制代码<br>请求配置</p>
+<p>在 utils 目录下创建 request.js 文件，配置好适合自己业务的请求拦截和响应拦截：</p>
+<p>└── src&#x2F;<br>    ├── api  &#x2F;&#x2F; 接口<br>    ├── utils&#x2F;<br>        ├── request.js  &#x2F;&#x2F; axios 请求库二次封装<br>复制代码</p>
+<figure class="highlight plaintext"><figcaption><span>axios from 'axios';</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 创建请求实例</span><br><span class="line">const instance = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;/api&#x27;,</span><br><span class="line">  // 指定请求超时的毫秒数</span><br><span class="line">  timeout: 1000,</span><br><span class="line">  // 表示跨域请求时是否需要使用凭证</span><br><span class="line">  withCredentials: false,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 前置拦截器（发起请求之前的拦截）</span><br><span class="line">instance.interceptors.request.use(</span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 在这里一般会携带前台的参数发送给后台，比如下面这段代码：</span><br><span class="line">     * const token = getToken()</span><br><span class="line">     * if (token) &#123;</span><br><span class="line">     *  config.headers.token = token</span><br><span class="line">     * &#125;</span><br><span class="line">     */</span><br><span class="line">    return config;</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    return Promise.reject(error);</span><br><span class="line">  &#125;,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// 后置拦截器（获取到响应时的拦截）</span><br><span class="line">instance.interceptors.response.use(</span><br><span class="line">  (response) =&gt; &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 根据你的项目实际情况来对 response 和 error 做处理</span><br><span class="line">     * 这里对 response 和 error 不做任何处理，直接返回</span><br><span class="line">     */</span><br><span class="line">    return response;</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    const &#123; response &#125; = error;</span><br><span class="line">    if (response &amp;&amp; response.data) &#123;</span><br><span class="line">      return Promise.reject(error);</span><br><span class="line">    &#125;</span><br><span class="line">    const &#123; message &#125; = error;</span><br><span class="line">    console.error(message);</span><br><span class="line">    return Promise.reject(error);</span><br><span class="line">  &#125;,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// 导出常用函数</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; url</span><br><span class="line"> * @param &#123;object&#125; data</span><br><span class="line"> * @param &#123;object&#125; params</span><br><span class="line"> */</span><br><span class="line">export const post = (url, data = &#123;&#125;, params = &#123;&#125;) =&gt; &#123;</span><br><span class="line">  return instance(&#123;</span><br><span class="line">    method: ‘post’,</span><br><span class="line">    url,</span><br><span class="line">    data,</span><br><span class="line">    params,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; url</span><br><span class="line"> * @param &#123;object&#125; params</span><br><span class="line"> */</span><br><span class="line">export const get = (url, params = &#123;&#125;) =&gt; &#123;</span><br><span class="line">  return instance(&#123;</span><br><span class="line">    method: ‘get’,</span><br><span class="line">    url,</span><br><span class="line">    params,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; url</span><br><span class="line"> * @param &#123;object&#125; data</span><br><span class="line"> * @param &#123;object&#125; params</span><br><span class="line"> */</span><br><span class="line">export const put = (url, data = &#123;&#125;, params = &#123;&#125;) =&gt; &#123;</span><br><span class="line">  return instance(&#123;</span><br><span class="line">    method: ‘put’,</span><br><span class="line">    url,</span><br><span class="line">    params,</span><br><span class="line">    data,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; url</span><br><span class="line"> * @param &#123;object&#125; params</span><br><span class="line"> */</span><br><span class="line">export const _delete = (url, params = &#123;&#125;) =&gt; &#123;</span><br><span class="line">  return instance(&#123;</span><br><span class="line">    method: ‘delete’,</span><br><span class="line">    url,</span><br><span class="line">    params,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default instance;</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>之后在 api 文件夹中以业务模型对接口进行拆分，举个例子，将所有跟用户相关接口封装在 User 类中，此类称作用户模型。</p>
+<p>在 User 类中比如有登录、注册、获取用户信息等方法，如果有业务逻辑变动，只需要修改相关方法即可。</p>
+<figure class="highlight plaintext"><figcaption><span>&#123; post &#125; from ‘@/utils/request’;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">export default class User &#123;</span><br><span class="line">  /**</span><br><span class="line">   * 登录</span><br><span class="line">   * @param &#123;String&#125; username 用户名</span><br><span class="line">   * @param &#123;String&#125; password 密码</span><br><span class="line">   * @returns</span><br><span class="line">   */</span><br><span class="line">  static async login(username, password) &#123;</span><br><span class="line">    return post(‘/login’, &#123;</span><br><span class="line">      username,</span><br><span class="line">      password,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>把每个业务模型独立成一个 js 文件，声明一个类通过其属性和方法来实现这个模型相关的数据获取，这样可以大大提升代码的可读性与可维护性。</p>
+<p>模拟演示</p>
+<p>在需要使用接口的地方，引入对应的业务模型文件，参考如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import User from ‘@/api/user’;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      username: ‘’,</span><br><span class="line">      password: ‘’,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    async login() &#123;</span><br><span class="line">      const res = await User.login(this.username, this.password);</span><br><span class="line">      console.log(res);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>集成 CSS 预处理器 Less</p>
+<p>本项目使用 CSS 预处理器 Less，直接安装为开发依赖即可。</p>
+<p>Vite 内部已帮我们集成了相关的 loader，不需要额外配置。</p>
+<p>安装依赖</p>
+<p>npm i less -D<br>复制代码<br>如何使用</p>
+<p>在 <style></style> 样式标签中引用 lang&#x3D;”less” 即可。</p>
+<style lang="less"></style>
+<p>复制代码<br>CSS 命名规范推荐 BEM 命名规范</p>
+<p>参考链接：CSS BEM 书写规范</p>
+<p>全局样式</p>
+<p>在 src&#x2F;style 目录下创建 variables.less 全局样式文件：</p>
+<p>└── src&#x2F;<br>    ├── style&#x2F;<br>        ├── variables.less  &#x2F;&#x2F; 全局样式文件<br>复制代码<br>在 vite.config.js 配置文件中新增CSS 预处理器相关配置即可实现 less 全局样式：</p>
+<figure class="highlight plaintext"><figcaption><span>&#123; resolve &#125; from ‘path’;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">    css: &#123;</span><br><span class="line">      preprocessorOptions: &#123;</span><br><span class="line">        less: &#123;</span><br><span class="line">          modifyVars: &#123;</span><br><span class="line">            hack: `true; @import (reference) “$&#123;resolve(‘src/style/variables.less’)&#125;”;`,</span><br><span class="line">          &#125;,</span><br><span class="line">          math: ‘strict’,</span><br><span class="line">          javascriptEnabled: true,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>样式穿透</p>
+<p>官方文档</p>
+<p>在 Vue3 中，改变了以往样式穿透的语法，如果继续使用 ::v-deep、&#x2F;deep&#x2F;、&gt;&gt;&gt; 等语法的话，会出现一个警告，下面是新的语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/* 深度选择器 */</span><br><span class="line">:deep(selector) &#123;</span><br><span class="line">  /* ... */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 插槽选择器 */</span><br><span class="line">:slotted(selector) &#123;</span><br><span class="line">  /* ... */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 全局选择器 */</span><br><span class="line">:global(selector) &#123;</span><br><span class="line">  /* ... */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复制代码<br>至此，一个基于 JavaScript + Vite3 + Vue3 + Vue Router + Pinia + Axios + Less 的前端项目开发环境搭建完毕。</p>
+<p>项目托管在 GitHub 仓库，需要的同学可以去下载下来，参考学习。</p>
+<p>接下来增加代码规范约束、提交规范约束、单元测试、自动部署等，让其更完善、更健壮。</p>
+<p>代码规范</p>
+<p>随着前端应用逐渐变得大型化和复杂化，在同一个项目中有多个人员参与时，每个人的前端能力程度不等，他们往往会用不同的编码风格和习惯在项目中写代码，长此下去，势必会让项目的健壮性越来越差。解决这些问题，理论上讲，口头约定和代码审查都可以，但是这种方式无法实时反馈，而且沟通成本过高，不够灵活，更关键的是无法把控。不以规矩，不能成方圆，我们不得不在项目使用一些工具来约束代码规范。</p>
+<p>本文讲解如何使用 EditorConfig + ESLint + Prettier + Stylelint 组合来实现代码规范化。</p>
+<p>这样做带来好处：</p>
+<p>解决团队之间代码不规范导致的可读性差和可维护性差的问题。<br>解决团队成员不同编辑器导致的编码规范不统一问题。<br>提前发现代码风格问题，给出对应规范提示，及时修复。<br>减少代码审查过程中反反复复的修改过程，节约时间。<br>自动格式化，统一编码风格，从此和脏乱差的代码说再见。<br>集成 EditorConfig 配置</p>
+<p>EditorConfig 主要用于统一不同 IDE 编辑器的编码风格。</p>
+<p>在项目根目录下添加 .editorconfig 文件：</p>
+<h1 id="表示是最顶层的-EditorConfig-配置文件"><a href="#表示是最顶层的-EditorConfig-配置文件" class="headerlink" title="表示是最顶层的 EditorConfig 配置文件"></a>表示是最顶层的 EditorConfig 配置文件</h1><p>root &#x3D; true</p>
+<h1 id="表示所有文件适用"><a href="#表示所有文件适用" class="headerlink" title="表示所有文件适用"></a>表示所有文件适用</h1><p>[*]</p>
+<h1 id="缩进风格（tab-space）"><a href="#缩进风格（tab-space）" class="headerlink" title="缩进风格（tab | space）"></a>缩进风格（tab | space）</h1><p>indent_style &#x3D; space</p>
+<h1 id="控制换行类型-lf-cr-crlf"><a href="#控制换行类型-lf-cr-crlf" class="headerlink" title="控制换行类型(lf | cr | crlf)"></a>控制换行类型(lf | cr | crlf)</h1><p>end_of_line &#x3D; lf</p>
+<h1 id="设置文件字符集为-utf-8"><a href="#设置文件字符集为-utf-8" class="headerlink" title="设置文件字符集为 utf-8"></a>设置文件字符集为 utf-8</h1><p>charset &#x3D; utf-8</p>
+<h1 id="去除行首的任意空白字符"><a href="#去除行首的任意空白字符" class="headerlink" title="去除行首的任意空白字符"></a>去除行首的任意空白字符</h1><p>trim_trailing_whitespace &#x3D; true</p>
+<h1 id="始终在文件末尾插入一个新行"><a href="#始终在文件末尾插入一个新行" class="headerlink" title="始终在文件末尾插入一个新行"></a>始终在文件末尾插入一个新行</h1><p>insert_final_newline &#x3D; true</p>
+<h1 id="表示仅-md-文件适用以下规则"><a href="#表示仅-md-文件适用以下规则" class="headerlink" title="表示仅 md 文件适用以下规则"></a>表示仅 md 文件适用以下规则</h1><p>[*.md]<br>max_line_length &#x3D; off<br>trim_trailing_whitespace &#x3D; false</p>
+<h1 id="表示仅-ts、js、vue、css-文件适用以下规则"><a href="#表示仅-ts、js、vue、css-文件适用以下规则" class="headerlink" title="表示仅 ts、js、vue、css 文件适用以下规则"></a>表示仅 ts、js、vue、css 文件适用以下规则</h1><p>[*.{ts,js,vue,css}]<br>indent_size &#x3D; 2<br>复制代码<br>很多 IDE 中会默认支持此配置，但是也有些不支持，如：VSCode、Atom、Sublime Text 等。</p>
+<p>具体列表可以参考官网，如果在 VSCode 中使用需要安装 EditorConfig for VS Code 插件。</p>
+<p>EditorConfig for VS Code</p>
+<p>集成 ESLint 配置</p>
+<p>ESLint 是针对 EScript 的一款代码检测工具，它可以检测项目中编写不规范的代码，如果写出不符合规范的代码会被警告。</p>
+<p>由此我们就可以借助于 ESLint 强大的功能来统一团队的编码规范。</p>
+<p>安装依赖</p>
+<p>ESLint - ESLint 本体<br>eslint-define-config - 改善 ESLint 规范编写体验<br>eslint-plugin-vue - 适用于 Vue 文件的 ESLint 插件<br>eslint-config-airbnb-base - Airbnb JavaScript 风格指南<br>eslint-plugin-import - 使用 eslint-config-airbnb-base 时必须安装的前置插件<br>vue-eslint-parser - 使用 eslint-plugin-vue 时必须安装的 ESLint 解析器<br>npm i eslint eslint-define-config eslint-config-airbnb-base eslint-plugin-import eslint-plugin-vue vue-eslint-parser -D<br>复制代码<br>安装插件</p>
+<p>Visual Studio Code 编辑器使用 ESLint 配置需要下载插件 ESLint 。</p>
+<p>ESLint</p>
+<p>JetBrains 系列编辑器（WebStorm、IntelliJ IDEA 等）则不用额外安装插件。</p>
+<p>创建 ESLint 配置文件</p>
+<p>在项目根目录创建 .eslintrc.js 文件，并填入以下内容：</p>
+<p>const { defineConfig } &#x3D; require(‘eslint-define-config’);</p>
+<p>module.exports &#x3D; defineConfig({<br>  root: true,<br>  env: {<br>    browser: true,<br>    node: true,<br>    jest: true,<br>    es6: true,<br>  },<br>  plugins: [‘vue’],<br>  parser: ‘vue-eslint-parser’,<br>  parserOptions: {<br>    ecmaVersion: ‘latest’,<br>    sourceType: ‘module’,<br>    allowImportExportEverywhere: true,<br>    ecmaFeatures: {<br>      jsx: true,<br>    },<br>  },<br>  extends: [<br>    ‘eslint-config-airbnb-base’,<br>    ‘eslint:recommended’,<br>    ‘plugin:vue&#x2F;vue3-essential’,<br>    ‘plugin:vue&#x2F;vue3-recommended’,<br>    ‘plugin:prettier&#x2F;recommended’,<br>  ],<br>  rules: {<br>    &#x2F;&#x2F; 禁止使用多余的包<br>    ‘import&#x2F;no-extraneous-dependencies’: 0,<br>    &#x2F;&#x2F; 确保在导入路径内一致使用文件扩展名<br>    ‘import&#x2F;extensions’: 0,<br>    &#x2F;&#x2F; 确保导入指向可以解析的文件&#x2F;模块<br>    ‘import&#x2F;no-unresolved’: 0,<br>    &#x2F;&#x2F; 首选默认导出导入&#x2F;首选默认导出<br>    ‘import&#x2F;prefer-default-export’: 0,<br>    &#x2F;&#x2F; 要求使用 let 或 const 而不是 var<br>    ‘no-var’: ‘error’,<br>    &#x2F;&#x2F; 禁止使用 new 以避免产生副作用<br>    ‘no-new’: 1,<br>    &#x2F;&#x2F; 禁止变量声明与外层作用域的变量同名<br>    ‘no-shadow’: 0,<br>    &#x2F;&#x2F; 禁用 console<br>    ‘no-console’: 0,<br>    &#x2F;&#x2F; 禁止标识符中有悬空下划线<br>    ‘no-underscore-dangle’: 0,<br>    &#x2F;&#x2F; 禁止在可能与比较操作符相混淆的地方使用箭头函数<br>    ‘no-confusing-arrow’: 0,<br>    &#x2F;&#x2F; 禁用一元操作符 ++ 和 –<br>    ‘no-plusplus’: 0,<br>    &#x2F;&#x2F; 禁止对 function 的参数进行重新赋值<br>    ‘no-param-reassign’: 0,<br>    &#x2F;&#x2F; 禁用特定的语法<br>    ‘no-restricted-syntax’: 0,<br>    &#x2F;&#x2F; 禁止在变量定义之前使用它们<br>    ‘no-use-before-define’: 0,<br>    &#x2F;&#x2F; 禁止直接调用 Object.prototypes 的内置属性<br>    ‘no-prototype-builtins’: 0,<br>    &#x2F;&#x2F; 禁止可以在有更简单的可替代的表达式时使用三元操作符<br>    ‘no-unneeded-ternary’: ‘error’,<br>    &#x2F;&#x2F; 禁止重复模块导入<br>    ‘no-duplicate-imports’: ‘error’,<br>    &#x2F;&#x2F; 禁止在对象中使用不必要的计算属性<br>    ‘no-useless-computed-key’: ‘error’,<br>    &#x2F;&#x2F; 禁止不必要的转义字符<br>    ‘no-useless-escape’: 0,<br>    &#x2F;&#x2F; 禁用 continue 语句<br>    ‘no-continue’: 0,<br>    &#x2F;&#x2F; 强制使用一致的缩进<br>    indent: [‘error’, 2, { SwitchCase: 1 }],<br>    &#x2F;&#x2F; 强制使用骆驼拼写法命名约定<br>    camelcase: 0,<br>    &#x2F;&#x2F; 强制类方法使用 this<br>    ‘class-methods-use-this’: 0,<br>    &#x2F;&#x2F; 要求构造函数首字母大写<br>    ‘new-cap’: 0,<br>    &#x2F;&#x2F; 强制一致地使用 function 声明或表达式<br>    ‘func-style’: 0,<br>    &#x2F;&#x2F; 强制一行的最大长度<br>    ‘max-len’: 0,<br>    &#x2F;&#x2F; 要求 return 语句要么总是指定返回的值，要么不指定<br>    ‘consistent-return’: 0,<br>    &#x2F;&#x2F; 强制switch要有default分支<br>    ‘default-case’: 2,<br>    &#x2F;&#x2F; 强制剩余和扩展运算符及其表达式之间有空格<br>    ‘rest-spread-spacing’: ‘error’,<br>    &#x2F;&#x2F; 要求使用 const 声明那些声明后不再被修改的变量<br>    ‘prefer-const’: ‘error’,<br>    &#x2F;&#x2F; 强制箭头函数的箭头前后使用一致的空格<br>    ‘arrow-spacing’: ‘error’,<br>    &#x2F;&#x2F; 只强制对象解构，不强制数组解构<br>    ‘prefer-destructuring’: [‘error’, { object: true, array: false }],<br>  },<br>});<br>复制代码<br>关于更多配置项信息，请前往 ESLint 官网查看 ESLint-Configuring</p>
+<p>创建 ESLint 过滤规则</p>
+<p>在项目根目录添加一个 .eslintignore 文件，内容如下：</p>
+<p>dist<br>node_modules<br>!.prettierrc.js<br>components.d.ts<br>auto-imports.d.ts<br>复制代码<br>集成 Prettier 配置</p>
+<p>Prettier 是一款强大的代码格式化工具，支持 JavaScript、TypeScript、CSS、SCSS、Less、JSX、Angular、Vue、GraphQL、JSON、Markdown 等语言，基本上前端能用到的文件格式它都可以搞定，是当下最流行的代码格式化工具。</p>
+<p>安装依赖</p>
+<p>npm i prettier -D<br>复制代码<br>安装插件</p>
+<p>Visual Studio Code 编辑器使用 Prettier 配置需要下载插件 Prettier - Code formatter 。</p>
+<p>Prettier - Code formatter</p>
+<p>JetBrains 系列编辑器（WebStorm、IntelliJ IDEA 等）则不用额外安装插件，可直接使用 Prettier 配置。</p>
+<p>创建 Prettier 配置文件</p>
+<p>Prettier 支持多种格式的配置文件，比如 .json、.yml、.yaml、.js等。</p>
+<p>在项目根目录创建 .prettierrc.js 文件，并填入以下内容：</p>
+<p>module.exports &#x3D; {<br>  &#x2F;&#x2F; 一行最多 120 字符<br>  printWidth: 120,<br>  &#x2F;&#x2F; 使用 2 个空格缩进<br>  tabWidth: 2,<br>  &#x2F;&#x2F; 不使用缩进符，而使用空格<br>  useTabs: false,<br>  &#x2F;&#x2F; 行尾需要有分号<br>  semi: true,<br>  &#x2F;&#x2F; 使用单引号<br>  singleQuote: true,<br>  &#x2F;&#x2F; 对象的 key 仅在必要时用引号<br>  quoteProps: ‘as-needed’,<br>  &#x2F;&#x2F; jsx 不使用单引号，而使用双引号<br>  jsxSingleQuote: false,<br>  &#x2F;&#x2F; 末尾需要有逗号<br>  trailingComma: ‘all’,<br>  &#x2F;&#x2F; 大括号内的首尾需要空格<br>  bracketSpacing: true,<br>  &#x2F;&#x2F; jsx 标签的反尖括号需要换行<br>  jsxBracketSameLine: false,<br>  &#x2F;&#x2F; 箭头函数，只有一个参数的时候，也需要括号<br>  arrowParens: ‘always’,<br>  &#x2F;&#x2F; 每个文件格式化的范围是文件的全部内容<br>  rangeStart: 0,<br>  rangeEnd: Infinity,<br>  &#x2F;&#x2F; 不需要写文件开头的 @prettier<br>  requirePragma: false,<br>  &#x2F;&#x2F; 不需要自动在文件开头插入 @prettier<br>  insertPragma: false,<br>  &#x2F;&#x2F; 使用默认的折行标准<br>  proseWrap: ‘preserve’,<br>  &#x2F;&#x2F; 根据显示样式决定 html 要不要折行<br>  htmlWhitespaceSensitivity: ‘css’,<br>  &#x2F;&#x2F; vue 文件中的 script 和 style 内不用缩进<br>  vueIndentScriptAndStyle: false,<br>  &#x2F;&#x2F; 换行符使用 lf<br>  endOfLine: ‘lf’,<br>  &#x2F;&#x2F; 格式化嵌入的内容<br>  embeddedLanguageFormatting: ‘auto’,<br>  &#x2F;&#x2F; html, vue, jsx 中每个属性占一行<br>  singleAttributePerLine: false,<br>};<br>复制代码<br>关于更多配置项信息，请前往 Prettier 官网查看 Prettier-Options</p>
+<p>创建 Prettier 过滤规则</p>
+<p>在项目根目录添加一个 .prettierignore 文件，内容如下：</p>
+<h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><p>.DS_Store<br>.idea<br>.editorconfig<br>pnpm-lock.yaml<br>.npmrc</p>
+<h1 id="Ignored-suffix"><a href="#Ignored-suffix" class="headerlink" title="Ignored suffix"></a>Ignored suffix</h1><p>*.log<br>*.md<br>*.svg<br>*.png<br>*.ico<br>*ignore</p>
+<h2 id="Local"><a href="#Local" class="headerlink" title="Local"></a>Local</h2><p>.husky</p>
+<h2 id="Built-files"><a href="#Built-files" class="headerlink" title="Built-files"></a>Built-files</h2><p>.cache<br>dist<br>复制代码<br>解决 Prettier 和 ESLint 冲突</p>
+<p>本项目中的 ESLint 配置使用了 Airbnb JavaScript 风格指南校验，其规则之一是代码结束后面要加分号，而在 Prettier 配置文件中加了代码结束后面不加分号配置项，从而冲突了。</p>
+<p>解决两者冲突问题，需要用到 eslint-plugin-prettier 和 eslint-config-prettier。</p>
+<p>eslint-plugin-prettier 将 Prettier 的规则设置到 ESLint 的规则中<br>eslint-config-prettier 关闭 ESLint 中与 Prettier 中会发生冲突的规则<br>最后形成优先级：Prettier 配置规则 &gt; ESLint 配置规则</p>
+<p>安装依赖</p>
+<p>npm i eslint-plugin-prettier eslint-config-prettier -D<br>复制代码<br>修改 ESLint 配置文件</p>
+<p>修改 .eslintrc.js 文件，在 extends 中添加 plugin:prettier&#x2F;recommended 规则（此规则一定要加在最后）。</p>
+<p>module.exports &#x3D; {<br>  extends: [<br>    ‘airbnb-base’,<br>    ‘eslint:recommended’,<br>    ‘plugin:vue&#x2F;vue3-essential’,<br>    ‘plugin:vue&#x2F;vue3-recommended’,<br>    ‘plugin:prettier&#x2F;recommended’<br>  ],<br>}<br>复制代码<br>自动格式化代码</p>
+<p>Visual Studio Code 在 settings.json 设置文件中，增加以下代码：</p>
+<p>{<br>  “editor.codeActionsOnSave”: {<br>    “source.fixAll”: true,<br>    “source.fixAll.eslint”: true<br>  }<br>}<br>复制代码<br>WebStorm 打开设置窗口，按如下操作，最后点击 Apply -&gt; OK：</p>
+<p>WebStorm</p>
+<p>集成 Stylelint 配置</p>
+<p>Stylelint 是一个强大、先进的 CSS 代码检查器（linter），可以帮助你规避 CSS 代码中的错误并保持一致的编码风格。</p>
+<p>安装依赖</p>
+<p>Stylelint - Stylelint 本体<br>stylelint-less - Stylelint Less 规则<br>stylelint-config-prettier - 关闭 Stylelint 中与 Prettier 中会发生冲突的规则<br>stylelint-config-standard - Stylelint 官方推荐规则<br>stylelint-config-recess-order - 对 CSS 声明进行排序<br>stylelint-order - CSS 属性顺序规则插件<br>npm i stylelint stylelint-less stylelint-config-prettier stylelint-config-standard stylelint-config-recess-order stylelint-order -D<br>复制代码<br>安装插件</p>
+<p>Visual Studio Code 编辑器使用 Stylelint 配置需要下载插件 Stylelint 。</p>
+<p>Stylelint</p>
+<p>JetBrains 系列编辑器（WebStorm、IntelliJ IDEA 等）则不用额外安装插件。</p>
+<p>创建 Stylelint 配置文件</p>
+<p>在项目根目录创建 .stylelintrc.js 文件，并填入以下内容：</p>
+<p>module.exports &#x3D; {<br>  root: true,<br>  defaultSeverity: ‘error’,<br>  plugins: [‘stylelint-order’, ‘stylelint-less’],<br>  extends: [<br>    ‘stylelint-config-standard’, &#x2F;&#x2F; the standard shareable config for Stylelint<br>    ‘stylelint-config-html&#x2F;html’, &#x2F;&#x2F; the shareable html config for Stylelint.<br>    ‘stylelint-config-html&#x2F;vue’, &#x2F;&#x2F; the shareable vue config for Stylelint.<br>    ‘stylelint-config-recess-order’, &#x2F;&#x2F; use the clean order for properties<br>    ‘stylelint-config-prettier’, &#x2F;&#x2F; turn off any rules that conflict with Prettier<br>  ],<br>  rules: {<br>    &#x2F;&#x2F; 禁止在覆盖高特异性选择器之后出现低特异性选择器<br>    ‘no-descending-specificity’: null,<br>    &#x2F;&#x2F; 禁止空源码<br>    ‘no-empty-source’: null,<br>    &#x2F;&#x2F; 禁止字体族中缺少泛型族关键字<br>    ‘font-family-no-missing-generic-family-keyword’: null,<br>    &#x2F;&#x2F; 禁止未知的@规则<br>    ‘at-rule-no-unknown’: [<br>      true,<br>      {<br>        ignoreAtRules: [<br>          ‘tailwind’,<br>          ‘apply’,<br>          ‘variants’,<br>          ‘responsive’,<br>          ‘screen’,<br>          ‘function’,<br>          ‘if’,<br>          ‘each’,<br>          ‘include’,<br>          ‘mixin’,<br>        ],<br>      },<br>    ],<br>    &#x2F;&#x2F; 不允许未知函数<br>    ‘function-no-unknown’: null,<br>    &#x2F;&#x2F; 不允许未知单位<br>    ‘unit-no-unknown’: [true, { ignoreUnits: [‘rpx’] }],<br>    &#x2F;&#x2F; 不允许选择器使用供应商前缀<br>    ‘selector-no-vendor-prefix’: null,<br>    &#x2F;&#x2F; 指定关键帧名称的模式<br>    ‘keyframes-name-pattern’: null,<br>    &#x2F;&#x2F; 指定类选择器的模式<br>    ‘selector-class-pattern’: null,<br>    &#x2F;&#x2F; 不允许值使用供应商前缀<br>    ‘value-no-vendor-prefix’: null,<br>    &#x2F;&#x2F; 要求或禁止在规则之前的空行<br>    ‘rule-empty-line-before’: [‘always’, { ignore: [‘after-comment’, ‘first-nested’] }],<br>    &#x2F;&#x2F; 指定字符串使用单引号<br>    ‘string-quotes’: ‘single’,<br>    &#x2F;&#x2F; 指定@规则名的大小写<br>    ‘at-rule-name-case’: ‘lower’,<br>    &#x2F;&#x2F; 指定缩进<br>    indentation: [2, { severity: ‘warning’ }],<br>  },<br>  ignoreFiles: [‘<strong>&#x2F;*.js’, ‘</strong>&#x2F;<em>.jsx’, ‘**&#x2F;</em>.tsx’, ‘**&#x2F;*.ts’],<br>};<br>复制代码<br>创建 Stylelint 过滤规则</p>
+<p>在项目根目录添加一个 .stylelintignore 文件，内容如下：</p>
+<h1 id="stylelintignore"><a href="#stylelintignore" class="headerlink" title=".stylelintignore"></a>.stylelintignore</h1><h1 id="旧的不需打包的样式库"><a href="#旧的不需打包的样式库" class="headerlink" title="旧的不需打包的样式库"></a>旧的不需打包的样式库</h1><p>*.min.css</p>
+<h1 id="其他类型文件"><a href="#其他类型文件" class="headerlink" title="其他类型文件"></a>其他类型文件</h1><p>*.js<br>*.jpg<br>*.woff</p>
+<h1 id="测试和打包目录"><a href="#测试和打包目录" class="headerlink" title="测试和打包目录"></a>测试和打包目录</h1><p>&#x2F;test&#x2F;<br>&#x2F;dist&#x2F;*<br>&#x2F;public&#x2F;*<br>public&#x2F;*<br>&#x2F;node_modules&#x2F;<br>复制代码<br>启用 Vue 文件支持</p>
+<p>Stylelint v14 版本默认不支持 vue 文件中的 style 代码自动检测，详情查看官方迁移指南</p>
+<p>安装依赖</p>
+<p>stylelint-config-html - 解析 vue 文件<br>postcss-html - 使用 stylelint-config-html 依赖的模块<br>postcss-less - 对 less 文件进行解析<br>npm i stylelint-config-html postcss-html postcss-less -D<br>复制代码<br>修改 Stylelint 配置文件</p>
+<p>修改 .stylelintrc.js 文件，添加如下配置：</p>
+<p>module.exports &#x3D; {<br>  overrides: [<br>    {<br>      files: [‘<em>.vue’, ‘**&#x2F;</em>.vue’, ‘<em>.html’, ‘**&#x2F;</em>.html’],<br>      customSyntax: ‘postcss-html’,<br>      rules: {<br>        &#x2F;&#x2F; 禁止未知的伪类选择器<br>        ‘selector-pseudo-class-no-unknown’: [true, { ignorePseudoClasses: [‘deep’, ‘global’] }],<br>        &#x2F;&#x2F; 禁止未知的伪元素选择器<br>        ‘selector-pseudo-element-no-unknown’: [true, { ignorePseudoElements: [‘v-deep’, ‘v-global’, ‘v-slotted’] }],<br>      },<br>    },<br>    {<br>      files: [‘<em>.less’, ‘**&#x2F;</em>.less’],<br>      customSyntax: ‘postcss-less’,<br>      rules: {<br>        ‘less&#x2F;color-no-invalid-hex’: true,<br>        ‘less&#x2F;no-duplicate-variables’: true,<br>      },<br>    },<br>  ],<br>};<br>复制代码<br>修改 Visual Studio Code 工作区配置</p>
+<p>Visual Studio Code 在 settings.json 设置文件中，增加以下代码：</p>
+<p>{<br>  “stylelint.validate”: [“css”, “less”, “postcss”, “scss”, “vue”, “sass”, “html”]<br>}<br>复制代码<br>集成 husky 和 lint-staged</p>
+<p>在项目中已集成 ESLint 和 Prettier，在编码时，这些工具可以对代码进行实时校验，在一定程度上能有效规范所写代码，但有些人可能觉得这些限制很麻烦，从而选择视“提示”而不见，依旧按自己编程风格来写代码，或者干脆禁用掉这些工具，开发完成就直接把代码提交到了仓库，日积月累，ESLint 也就形同虚设。</p>
+<p>所以，还需要做一些限制，让没通过 ESLint 检测和修复的代码禁止提交，从而保证仓库代码都是符合规范的。</p>
+<p>为了解决这个问题，需要用到 Git Hook，在本地执行 git commit 的时候，就对所提交的代码进行 ESLint 检测和修复（即执行 eslint –fix），如果这些代码没通过 ESLint 规则校验，则禁止提交。</p>
+<p>实现这一功能，需要借助 husky + lint-staged 。</p>
+<p>配置 husky</p>
+<p>注意：本项目使用 husky 6.x 版本，6.x 版本配置方式跟之前版本有较大差异，当发现配置方法不一致时，一切以 husky 官网为准。</p>
+<p>使用 husky-init 命令快速在项目初始化 husky 配置：</p>
+<h1 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h1><p>git init</p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>npx husky-init</p>
+<h1 id="安装依赖-1"><a href="#安装依赖-1" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>npm install<br>复制代码<br>husky 包含很多 hook（钩子），常用有：pre-commit、commit-msg。</p>
+<p>使用 pre-commit 来触发 ESLint 命令，修改 .husky&#x2F;pre-commit 文件触发命令：</p>
+<p>eslint –fix .&#x2F;src –ext .vue,.js,.ts<br>复制代码<br>pre-commit hook 文件作用是：当执行 git commit -m “xxx” 时，会先对 src 目录下所有的 .vue、.js、.ts 文件执行 eslint –fix 命令，如果 ESLint 通过，成功 commit，否则终止 commit。</p>
+<p>但是又存在一个问题：有时候明明只改动了一两个文件，却要对所有的文件执行 eslint –fix。</p>
+<p>假如这是一个历史项目，在中途配置了 ESLint 规则，那么在提交代码时，也会对其他未修改的“历史”文件都进行检查，可能会造成大量文件出现 ESLint 错误，显然这不是我们想要的结果。</p>
+<p>所以只需要用 ESLint 修复此次写的代码，而不去影响其他的代码，此时需要借助 lint-staged 工具。</p>
+<p>配置 lint-staged</p>
+<p>lint-staged 一般结合 husky 来使用，它可以让 husky 的 hook 触发的命令只作用于 git 暂存区的文件，而不会影响到其他文件。</p>
+<p>安装依赖</p>
+<p>npm i lint-staged -D<br>复制代码<br>新增配置</p>
+<p>在 package.json 里增加 lint-staged 配置项：</p>
+<p>{<br>  “lint-staged”: {<br>    “<em>.{js,jsx,ts,tsx}”: [<br>      “prettier –write”,<br>      “eslint –fix”<br>    ],<br>    “</em>.vue”: [<br>      “prettier –write”,<br>      “eslint –fix”,<br>      “stylelint –fix”<br>    ],<br>    “<em>.{html,vue,vss,sass,less}”: [<br>      “prettier –write”,<br>      “stylelint –fix”<br>    ],<br>    “package.json”: [<br>      “prettier –write”<br>    ],<br>    “</em>.md”: [<br>      “prettier –write”<br>    ]<br>  },<br>}<br>复制代码<br>修改触发命令</p>
+<p>修改 .husky&#x2F;pre-commit 文件触发命令为：</p>
+<p>npx lint-staged<br>复制代码<br>pre-commit</p>
+<p>经过以上配置之后，就可以在每次提交之前对所有代码进行格式化，保证线上代码的规范性。</p>
+<p>提交规范</p>
+<p>多人协作项目中，在提交代码环节，也存在一种情况：不能保证每个人对提交信息的准确描述，因此会出现提交信息紊乱、风格不一致的情况。</p>
+<p>如果 git commit 的描述信息精准，在后期维护和 Bug 处理时会变得有据可查，项目开发周期内还可以根据规范的提交信息快速生成开发日志，从而方便我们追踪项目和把控进度。</p>
+<p>社区最流行、最知名、最受认可的 Angular 团队提交规范：</p>
+<p>Angular 团队提交规范</p>
+<p>参考链接： Angular Style Commit Message Conventions</p>
+<p>Commit Message 格式规范</p>
+<p>commit message 由 Header、Body、Footer 组成。</p>
+<Header>
+
+<Body>
+
+<Footer>
+复制代码
+Header
+
+<p>Header 部分包括三个字段 type（必需）、scope（可选）和 subject（必需）。</p>
+<p><type>(<scope>): <subject><br>复制代码<br>type</p>
+<p>type 用于说明 commit 的提交类型（必须是以下几种之一）。</p>
+<p>值	描述<br>feat	新增功能<br>fix	修复问题<br>docs	文档变更<br>style	代码格式（不影响功能，例如空格、分号等格式修正）<br>refactor	代码重构<br>perf	改善性能<br>test	测试<br>build	变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等）<br>ci	更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等<br>chore	变更构建流程或辅助工具<br>revert	代码回退<br>scope</p>
+<p>scope 用于指定本次 commit 影响的范围。</p>
+<p>scope 依据项目而定，例如在业务项目中可以依据菜单或者功能模块划分，如果是组件库开发，则可以依据组件划分。</p>
+<p>subject</p>
+<p>subject 是本次 commit 的简洁描述，长度约定在 50 个字符以内，通常遵循以下几个规范：</p>
+<p>用动词开头，第一人称现在时表述，例如：change 代替 changed 或 changes<br>第一个字母小写<br>结尾不加句号（.）<br>Body</p>
+<p>body 是对本次 commit 的详细描述，可以分成多行。</p>
+<p>跟 subject 类似，用动词开头，body 应该说明修改的原因和更改前后的行为对比。</p>
+<p>Footer</p>
+<p>如果本次提交的代码是突破性的变更或关闭缺陷，则 Footer 必需，否则可以省略。</p>
+<p>突破性的变更</p>
+<p>当前代码与上一个版本有突破性改变，则 Footer 以 BREAKING CHANGE 开头，后面是对变动的描述、以及变动的理由。</p>
+<p>关闭缺陷</p>
+<p>如果当前提交是针对特定的 issue，那么可以在 Footer 部分填写需要关闭的单个 issue 或一系列 issues。</p>
+<p>参考例子</p>
+<p>feat</p>
+<p>feat(browser): onUrlChange event (popstate&#x2F;hashchange&#x2F;polling)</p>
+<p>Added new event to browser:</p>
+<ul>
+<li>forward popstate event if available</li>
+<li>forward hashchange event if popstate not available</li>
+<li>do polling when neither popstate nor hashchange available</li>
+</ul>
+<p>Breaks $browser.onHashChange, which was removed (use onUrlChange instead)<br>复制代码<br>fix</p>
+<p>fix(compile): couple of unit tests for IE9</p>
+<p>Older IEs serialize html uppercased, but IE9 does not…<br>Would be better to expect case insensitive, unfortunately jasmine does<br>not allow to user regexps for throw expectations.</p>
+<p>Closes #392<br>Breaks foo.bar api, foo.baz should be used instead<br>复制代码<br>style</p>
+<p>style(location): add couple of missing semi colons<br>复制代码<br>chore</p>
+<p>chore(release): v3.4.2<br>复制代码<br>集成 cz-git 实现规范提交</p>
+<p>一款工程性更强，轻量级，高度自定义，标准输出格式的 commitizen 适配器</p>
+<p>官方网站：cz-git</p>
+<p>cz-git</p>
+<p>安装依赖</p>
+<p>npm install -D cz-git<br>复制代码<br>指定适配器</p>
+<p>修改 package.json 文件，添加 config 指定使用的适配器</p>
+<p>{<br>  “scripts”: {},<br>  “config”: {<br>    “commitizen”: {<br>      “path”: “node_modules&#x2F;cz-git”<br>    }<br>  }<br>}<br>复制代码<br>自定义配置（可选）</p>
+<p>cz-git 与 commitlint 进行联动给予校验信息，所以可以编写于 commitlint 配置文件之中。</p>
+<p>例如：(⇒ 配置模板)</p>
+<p>&#x2F;** @type {import(‘cz-git’).UserConfig} *&#x2F;<br>module.exports &#x3D; {<br>  extends: [‘@commitlint&#x2F;config-conventional’],<br>  rules: {},<br>  prompt: {<br>    useEmoji: false,<br>    emojiAlign: ‘center’,<br>    allowCustomIssuePrefixs: false,<br>    allowEmptyIssuePrefixs: false,<br>  },<br>};<br>复制代码<br>本项目配置文件可参考：commitlint.config.js</p>
+<p>全局使用</p>
+<p>全局安装的好处在于：在任何项目下都可以利用 cz 或 git cz 命令启动命令行工具，生成标准化 commit message</p>
+<p>安装全局依赖</p>
+<p>npm install -g cz-git commitizen<br>复制代码<br>全局配置适配器类型</p>
+<p>echo ‘{ “path”: “cz-git” }’ &gt; ~&#x2F;.czrc<br>复制代码<br>自定义配置（可选）</p>
+<p>方式一： 编辑 ~&#x2F;.czrc 文件以 json 形式添加配置，例如：</p>
+<p>{<br>  “path”: “cz-git”,<br>  “useEmoji”: true<br>}<br>复制代码<br>方式二：与 commitlint 配合，在 $HOME 路径下创建配置文件 (↓ 配置模板)</p>
+<p>集成 commitlint 验证规范提交</p>
+<p>在“代码规范”章节中提到，尽管制定了规范，但在多人协作的项目中，总有些人依旧我行我素。</p>
+<p>因此提交代码这个环节，也增加一个限制：只让符合 Angular 规范的 commit message 通过。</p>
+<p>此功能需借助 @commitlint&#x2F;config-conventional 和 @commitlint&#x2F;cli 工具来实现。</p>
+<p>安装</p>
+<p>@commitlint&#x2F;cli - Commitlint 本体<br>@commitlint&#x2F;config-conventional - 通用提交规范<br>npm i @commitlint&#x2F;cli @commitlint&#x2F;config-conventional -D<br>复制代码<br>配置</p>
+<p>在项目根目录创建 commitlint.config.js 文件，并填入以下内容：</p>
+<p>module.exports &#x3D; {<br>  extends: [‘@commitlint&#x2F;config-conventional’]<br>}<br>复制代码<br>使用 husky 命令在 .husky 目录下创建 commit-msg 文件，并在此执行验证命令：</p>
+<p>npx husky add .husky&#x2F;commit-msg “npx –no-install commitlint –edit $1”<br>复制代码<br>commit-msg</p>
+<p>本项目完整代码托管在 GitHub 仓库，欢迎点亮小星星 🌟🌟</p>
+<p>自动部署</p>
+<p>本章节将介绍如何使用 CI（Continuous Integration 持续集成）服务来完成项目部署工作。</p>
+<p>常见的 CI 工具有 GitHub Actions、GitLab CI、Travis CI、Circle CI 等。</p>
+<p>本项目使用 GitHub Actions 来完成这一操作。</p>
+<p>🔗 参考链接：GitHub Actions 入门教程</p>
+<p>创建 GitHub 仓库</p>
+<p>因为 GitHub Actions 只对 GitHub 仓库有效，所以创建 GitHub 仓库来托管项目代码。</p>
+<p>创建 GitHub 仓库</p>
+<p>master 分支存储项目源代码<br>gh-pages 分支存储打包后的静态文件<br>创建 GitHub Token</p>
+<p>创建一个有 repo 和 workflow 权限的 GitHub Token</p>
+<p>创建 GitHub Token</p>
+<p>注意：新生成的 Token 只会显示一次。</p>
+<p>Token</p>
+<p>添加 Actions secret</p>
+<p>将上述创建的 Token 添加到 GitHub 仓库中的 Secrets 里，并将这个新增的 secret 命名为 VITE_VUE_DEPLOY 。</p>
+<p>步骤：仓库 -&gt; Settings -&gt; Secrets -&gt; Actions -&gt; New repository secret。</p>
+<p>New secret</p>
+<p>注意：新创建的 secret VITE_VUE_DEPLOY 在 Actions 配置文件中要用到，两个地方需保持一致！</p>
+<p>修改 package.json</p>
+<p>打开 package.json 文件，新增 homepage 字段，表示该应用发布后的根目录（参见官方文档）。</p>
+<p>“homepage”: “https:&#x2F;&#x2F;[username].github.io&#x2F;github-actions-demo”,<br>复制代码<br>上面代码中，将 [username] 替换成你的 GitHub 用户名，参见范例。</p>
+<p>创建 Actions 配置文件</p>
+<p>（1）在项目根目录下创建 .github 目录。</p>
+<p>（2）在 .github 目录下创建 workflows 目录。</p>
+<p>（3）在 workflows 目录下创建 deploy.yml 文件。</p>
+<p>.github&#x2F;workflows&#x2F;deploy.yml</p>
+<p>name: Vite Vue Deploy</p>
+<p>on:<br>  push:<br>    # master 分支有 push 时触发<br>    branches: [master]</p>
+<p>jobs:<br>  deploy:<br>    # 指定虚拟机环境<br>    runs-on: ubuntu-latest</p>
+<pre><code>strategy:
+  matrix:
+    node-version: [14.x, 16.x]
+
+steps:
+  - name: Checkout
+    # 拉取 GitHub 仓库代码
+    uses: actions/checkout@v3
+
+  - name: Use Node.js $&#123;&#123; matrix.node-version &#125;&#125;
+    # 设定 Node.js 环境
+    uses: actions/setup-node@v3
+    with:
+      node-version: $&#123;&#123; matrix.node-version &#125;&#125;
+
+  - name: Install
+    # 安装依赖
+    run: npm install
+
+  - name: Build
+    # 打包
+    run: npm run build
+
+  - name: Deploy
+    uses: JamesIves/github-pages-deploy-action@v4
+    with:
+      # 部署打包目录
+      folder: dist
+      # 密钥名
+      token: $&#123;&#123; secrets.VITE_VUE_DEPLOY &#125;&#125;
+      # 分支
+      branch: gh-pages
+</code></pre>
+<p>复制代码<br>🔗 通过此链接 ElanYoung.github.io&#x2F;vite-vue-js… 即可访问本项目</p>
+<p>文章总结</p>
+<p>本文从技术选项到架构搭建、从代码规范约束到提交信息规范约束，一步一步带领大家如何从一个最简单的前端项目骨架到规范的前端工程化环境，基本涵盖前端项目开发的整个流程，特别适合刚接触前端工程化的同学学习。</p>
+<p>因篇幅较长，所涉及技术点较多，难免会出现错误，希望大家多多指正，谢谢大家！</p>
+<p>参考出处</p>
+<p>XPoet：从 0 开始手把手带你搭建一套规范的 Vue3.x 项目工程环境</p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/vue3/">#vue3</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2023/05/16/%E4%BB%8E%200%20%E6%90%AD%E5%BB%BA%20Vite%203%20+%20Vue%202.7%20%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%A1%B9%E7%9B%AE/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">从 0 搭建 Vite 3 + Vue 2.7 前端工程化项目</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                </div>
+            
+
+            
+                <div class="comment-container">
+                    
+<div class="comments-container">
+    <div id="comments-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments"></i>&nbsp;Comments
+    </div>
+    
+        
+            
+
+    <div class="gitalk-comment-container">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+        <script  src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+        <script >
+          function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+              __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+              Gitalk && new Gitalk({
+                clientID: 'a85b4998347cbc5bfba6',
+                clientSecret: '283df2a25030f48a8d677cb8ed1de71cab8c7976',
+                repo: 'zack995886data',
+                owner: 'zack995886',
+                admin: 'zack995886',
+                id: __gitalk__pathname,
+                proxy: '',
+                language: 'en'
+              }).render('gitalk-container');
+            } catch (e) {
+              window.Gitalk = null;
+            }
+          }
+
+          if ('false' === 'true') {
+            const loadGitalkTimeout = setTimeout(() => {
+              loadGitalk();
+              clearTimeout(loadGitalkTimeout);
+            }, 1000);
+          } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+          }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">威子</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+    
+</div>
+
+
+
+</body>
+</html>
